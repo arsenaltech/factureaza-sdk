@@ -20,6 +20,7 @@ trait RequestsInvoiceFields
         'id',
         'documentDate',
         'documentState',
+        'dueDate',
         'clientId',
         'clientUid',
         'clientName',

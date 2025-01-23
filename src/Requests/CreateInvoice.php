@@ -37,6 +37,8 @@ class CreateInvoice implements Mutation
 
     public CarbonImmutable $documentDate;
 
+    public CarbonImmutable $dueDate;
+
     /** @var CreateInvoiceItem[] */
     public array $items = [];
 
@@ -47,6 +49,7 @@ class CreateInvoice implements Mutation
     public function __construct()
     {
         $this->documentDate = CarbonImmutable::now();
+        $this->dueDate = $this->documentDate->addDays(5);
         $this->state = DocumentState::create();
     }
 
@@ -70,6 +73,7 @@ class CreateInvoice implements Mutation
             'clientId' => $this->clientId,
             'documentSeriesId' => $this->documentSeriesId,
             'documentDate' => $this->documentDate->format('Y-m-d'),
+            'dueDate' => $this->dueDate->format('Y-m-d'), 
             'documentState' => $this->state->value(),
             'upperAnnotation' => $this->upperAnnotation,
             'lowerAnnotation' => $this->lowerAnnotation,
