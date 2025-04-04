@@ -25,6 +25,8 @@ class Invoice implements Resource
 
     public readonly CarbonImmutable $documentDate;
 
+    public readonly CarbonImmutable $dueDate;
+
     public readonly DocumentState $state;
 
     public readonly string $clientId;
